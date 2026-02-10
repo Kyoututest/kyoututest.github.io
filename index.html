@@ -3,54 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>共通テスト成績の即時開示を求める | 私の成績は、私のものだ。</title>
+    <title>共通テスト成績の即時開示を求める | 共通テスト成績の早期開示の実現を求める会</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
-        body { font-family: 'Noto Sans JP', sans-serif; }
+        body { font-family: 'Noto Sans JP', sans-serif; overflow-x: hidden; }
         .hero-gradient {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
         }
         .highlight { background: linear-gradient(transparent 70%, #fef08a 70%); }
+        /* スムーズスクロールのオフセット調整 */
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+        /* モバイルメニューのアニメーション */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+            padding: 1rem 0;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div class="font-bold text-xl text-blue-800 tracking-tighter">成績開示改善プロジェクト</div>
-                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <div class="font-bold text-base md:text-xl text-blue-800 tracking-tighter truncate mr-2">
+                    共通テスト成績の早期開示の実現を求める会
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 text-sm font-medium whitespace-nowrap items-center">
                     <a href="#problem" class="hover:text-blue-600 transition">問題の本質</a>
                     <a href="#learning" class="hover:text-blue-600 transition">学習への影響</a>
                     <a href="#evidence" class="hover:text-blue-600 transition">証拠と矛盾</a>
-                    <!-- <a href="#reports" class="hover:text-blue-600 transition">活動報告</a> -->
+                    <a href="philosophy.html" class="hover:text-blue-600 transition">設立理念</a>
                     <a href="#action" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow-md">賛同する</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="lg:hidden text-blue-800 p-2 focus:outline-none" aria-label="メニューを開く">
+                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Content -->
+            <div id="mobile-menu" class="lg:hidden border-t border-slate-100 bg-white">
+                <div class="flex flex-col space-y-4 px-2 pb-4">
+                    <a href="#problem" class="mobile-link text-slate-600 font-bold px-4 py-2 hover:bg-slate-50 rounded-lg">問題の本質</a>
+                    <a href="#learning" class="mobile-link text-slate-600 font-bold px-4 py-2 hover:bg-slate-50 rounded-lg">学習への影響</a>
+                    <a href="#evidence" class="mobile-link text-slate-600 font-bold px-4 py-2 hover:bg-slate-50 rounded-lg">証拠と矛盾</a>
+                    <a href="philosophy.html" class="mobile-link text-slate-600 font-bold px-4 py-2 hover:bg-slate-50 rounded-lg">設立理念</a>
+                    <a href="#action" class="mobile-link bg-blue-600 text-white font-bold px-4 py-3 rounded-xl text-center shadow-md">署名して賛同する</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-gradient text-white py-24 px-4">
+    <header class="hero-gradient text-white py-16 md:py-24 px-4 overflow-hidden">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
-                私の成績は、私のものだ。
+            <div class="inline-block bg-yellow-400 text-blue-900 text-[10px] md:text-sm font-black px-4 py-1 rounded-full mb-6 tracking-widest uppercase">
+                Project Mission
+            </div>
+            <h1 class="text-3xl md:text-6xl font-black mb-6 leading-tight break-keep">
+                共通テストの成績開示を、<br class="md:hidden">
+                <span class="text-yellow-300 underline decoration-2 md:decoration-4 underline-offset-4 md:underline-offset-8">「4月」から「2月上旬」へ。</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-10 opacity-90 leading-relaxed font-medium">
+            <p class="text-base md:text-2xl mb-8 opacity-90 leading-relaxed font-medium px-2">
                 デジタル化した共通テスト。<br class="hidden md:inline">
-                なぜ自分の点数を知るのに、3ヶ月も待たされるのか？
+                受験生が最も情報を必要とする時期に、<br class="md:hidden">自分の点数を知る権利を。
             </p>
-            <p class="text-sm md:text-base opacity-80 mb-10 max-w-2xl mx-auto leading-relaxed">
-                ※ 本プロジェクトは成績の内容ではなく、<span class="underline font-bold text-yellow-300">自己情報（成績）へのアクセス時期の合理性</span>を問い、受験生が不利益を被らないシステムへの早期改善を求めるものです。
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#action" class="bg-yellow-400 text-blue-900 font-bold text-lg px-10 py-4 rounded-xl hover:bg-yellow-300 transition shadow-xl">
+            
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 md:p-6 mb-10 max-w-2xl mx-auto text-left md:text-center">
+                <p class="text-xs md:text-base leading-relaxed">
+                    <span class="font-bold text-yellow-300 block mb-1 md:inline md:mr-2">本プロジェクトの目的:</span>
+                    「自己採点」という不確かな情報ではなく、大学入試センターの「確定スコア」を早期に開示させ、出願や対策に活用できる環境の実現を求めます。
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                <a href="#action" class="w-full sm:w-auto bg-yellow-400 text-blue-900 font-bold text-base md:text-lg px-8 py-4 rounded-xl hover:bg-yellow-300 transition shadow-xl">
                     署名してシステムを変える
                 </a>
-                <a href="#problem" class="bg-white/20 backdrop-blur-md text-white border border-white/30 font-bold text-lg px-10 py-4 rounded-xl hover:bg-white/30 transition">
+                <a href="#problem" class="w-full sm:w-auto bg-white/20 backdrop-blur-md text-white border border-white/30 font-bold text-base md:text-lg px-8 py-4 rounded-xl hover:bg-white/30 transition">
                     詳しく知る
                 </a>
             </div>
@@ -58,57 +100,57 @@
     </header>
 
     <!-- Problem Section -->
-    <section id="problem" class="py-24 px-4 max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-4 text-blue-900">私たちが直面している「不条理」</h2>
-            <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+    <section id="problem" class="py-16 md:py-24 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-blue-900">私たちが直面している「不条理」</h2>
+            <div class="w-16 md:w-20 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-user-shield"></i></div>
-                <h3 class="font-bold text-xl mb-3">自己情報コントロール権</h3>
-                <p class="text-slate-600 leading-relaxed">
-                    憲法13条の趣旨に基づけば、個人が自己の成績を適時に把握できる利益は、十分に尊重されるべきです。
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-blue-600 text-2xl md:text-3xl mb-4"><i class="fas fa-user-shield"></i></div>
+                <h3 class="font-bold text-lg md:text-xl mb-3">自己情報コントロール権</h3>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                    憲法13条の趣旨に基づき、個人が自分の成績を「必要な時」に把握できる利益は尊重されるべき権利です。
                 </p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-exclamation-triangle"></i></div>
-                <h3 class="font-bold text-xl mb-3">不可逆な選択の強要</h3>
-                <p class="text-slate-600 leading-relaxed">
-                    不確実な「自己採点」で出願先を決めさせるのは博打と同じです。一生を左右する判断を、行政の運用の硬直化によってリスクに晒しています。
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-blue-600 text-2xl md:text-3xl mb-4"><i class="fas fa-exclamation-triangle"></i></div>
+                <h3 class="font-bold text-lg md:text-xl mb-3">不確実な選択の強要</h3>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                    一生を左右する出願を、誤差の出る「自己採点」に頼らせるのは行政の運用の硬直化によるリスクの押し付けです。
                 </p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-coins"></i></div>
-                <h3 class="font-bold text-xl mb-3">IT予算の目的不履行</h3>
-                <p class="text-slate-600 leading-relaxed">
-                    デジタル化予算は「効率化」のために投じられました。技術的に可能な即時開示を拒み、無駄な待ち時間を強いるのは、税金投入の目的に反します。
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-blue-600 text-2xl md:text-3xl mb-4"><i class="fas fa-coins"></i></div>
+                <h3 class="font-bold text-lg md:text-xl mb-3">IT予算の目的不履行</h3>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                    「事務の効率化」のために投じられたデジタル化予算。技術的に可能な早期開示を拒むのは、税金投入の目的に反します。
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Learning Section -->
-    <section id="learning" class="py-24 bg-blue-50 px-4">
+    <section id="learning" class="py-16 md:py-24 bg-blue-50 px-4">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8 text-blue-900 italic">「確定した点数」が、次の合格を拓く</h2>
-            <p class="text-lg text-slate-700 leading-relaxed mb-12">
-                早期開示は単なる出願のためだけではありません。<br>
-                <span class="highlight font-bold">たとえ国公立出願後であっても</span>、確定した点数を入手することは学習の質を劇的に向上させます。
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-blue-900 italic">「確定した点数」が、次の合格を拓く</h2>
+            <p class="text-base md:text-lg text-slate-700 leading-relaxed mb-10 px-2">
+                早期開示は単なる出願のためだけではありません。<br class="hidden md:inline">
+                <span class="highlight font-bold">たとえ出願後であっても</span>、確定スコアを入手することは学習の質を劇的に向上させます。
             </p>
             
-            <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-blue-100">
-                    <h4 class="font-bold text-xl mb-4 text-blue-800"><i class="fas fa-bullseye mr-2"></i>精緻な個別試験対策</h4>
-                    <p class="text-slate-600 leading-relaxed">
-                        自己採点で見落とした「本当の弱点」を早期に特定。国公立2次試験や私大後半日程に向けて、残された数週間を最大効率で学習に充てることができます。
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-left">
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-blue-100">
+                    <h4 class="font-bold text-lg md:text-xl mb-4 text-blue-800 flex items-center"><i class="fas fa-bullseye mr-2"></i>精緻な個別試験対策</h4>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                        自己採点で見落とした「本当の弱点」を早期に特定。国公立2次や私大後半日程に向けて、残された数週間を最大効率で学習に充てられます。
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-blue-100">
-                    <h4 class="font-bold text-xl mb-4 text-blue-800"><i class="fas fa-brain mr-2"></i>精神的安定と集中</h4>
-                    <p class="text-slate-600 leading-relaxed">
-                        「採点ミスがあったかも」という不安は、受験生の集中力を削ぎます。確定した現実を知ることで、迷いなく目の前の試験に全力を注ぐことができます。
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-blue-100">
+                    <h4 class="font-bold text-lg md:text-xl mb-4 text-blue-800 flex items-center"><i class="fas fa-brain mr-2"></i>精神的安定と集中</h4>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                        「マークミスがあったかも」という不安は集中力を削ぎます。確定した現実を知ることで、迷いなく目の前の試験に全力を注げます。
                     </p>
                 </div>
             </div>
@@ -116,175 +158,98 @@
     </section>
 
     <!-- Evidence Section -->
-    <section id="evidence" class="py-24 px-4 bg-white">
-        <div class="max-w-6xl mx-auto border-b border-slate-100 pb-24">
-            <div class="flex flex-col md:flex-row items-start gap-12">
-                <div class="md:w-5/12">
-                    <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Evidence & Conflict</span>
-                    <h2 class="text-3xl font-bold mt-2 mb-6 text-slate-900">国の「事業計画」との決定的な矛盾</h2>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
-                        大学入試センター自身が掲げる目標には、IT活用による効率化が明記されています。
+    <section id="evidence" class="py-16 md:py-24 px-4 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto border-b border-slate-100 pb-16 md:pb-24">
+            <div class="flex flex-col lg:flex-row items-start gap-12">
+                <div class="w-full lg:w-5/12">
+                    <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Evidence & Conflict</span>
+                    <h2 class="text-2xl md:text-3xl font-bold mt-2 mb-6 text-slate-900">国の「事業計画」との矛盾</h2>
+                    <p class="text-slate-600 text-sm md:text-base mb-6 leading-relaxed">
+                        大学入試センター自身が掲げる目標には、IT活用による効率化と受験生の利便性向上が明記されています。
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <a href="https://www.dnc.ac.jp/albums/abm.php?d=166&f=abm00005311.pdf&n=%E3%80%90%E7%8B%AC%E7%AB%8B%E8%A1%8C%E6%94%BF%E6%B3%95%E4%BA%BA%E5%A4%A7%E5%AD%A6%E5%85%A5%E8%A9%A6%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%80%91%E4%BB%A4%E5%92%8C%EF%BC%97%E4%BA%8B%E6%A5%AD%E5%B9%B4%E5%BA%A6%E8%A8%88%E7%94%BB%EF%BC%88%E5%88%A5%E7%B4%99%E3%81%A4%E3%81%8D%EF%BC%89.pdf" target="_blank" class="block flex items-center p-4 bg-slate-50 rounded-lg border-l-4 border-blue-600 shadow-sm hover:bg-blue-50 transition">
-                            <i class="fas fa-file-pdf text-red-500 text-xl mr-4"></i>
-                            <div>
-                                <div class="font-bold text-xs text-slate-500 uppercase tracking-tighter">令和7事業年度計画（1. 業務運営の効率化）</div>
-                                <div class="text-sm font-bold text-slate-800">「ITの活用により事務の簡略化・効率化を図る」</div>
-                            </div>
-                        </a>
-                    </div>
+                    
+                    <a href="#" class="block flex items-center p-4 bg-slate-50 rounded-lg border-l-4 border-blue-600 shadow-sm hover:bg-blue-50 transition mb-8">
+                        <i class="fas fa-file-pdf text-red-500 text-2xl mr-4"></i>
+                        <div>
+                            <div class="font-bold text-[10px] text-slate-500 uppercase tracking-tighter">令和7事業年度計画（1. 業務運営の効率化）</div>
+                            <div class="text-xs md:text-sm font-bold text-slate-800">「ITの活用により事務の簡略化・効率化を図る」</div>
+                        </div>
+                    </a>
 
-                    <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-8">
+                    <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6">
                         <p class="text-sm text-blue-900 font-bold mb-3 flex items-center">
                             <i class="fas fa-poll-h mr-2"></i> 実態調査にご協力ください
                         </p>
                         <p class="text-xs text-slate-600 mb-4 leading-relaxed">
                             「自己採点と実際の得点のズレ」がどれほど学習に影響しているか、あなたの経験を教えてください。
                         </p>
-                        <a href="https://docs.google.com/forms/..." target="_blank" class="block w-full text-center bg-blue-600 text-white text-sm font-bold py-3 rounded-xl hover:bg-blue-700 transition">
+                        <a href="#" class="block w-full text-center bg-blue-600 text-white text-sm font-bold py-3 rounded-xl hover:bg-blue-700 transition">
                             アンケートに回答する
                         </a>
                     </div>
-                    
-                    <div class="mt-8 pt-8 border-t border-slate-100">
-                        <h4 class="text-sm font-bold text-slate-400 uppercase mb-4 tracking-widest text-xs">その他参考資料</h4>
-                        <div class="grid grid-cols-1 gap-2">
-                            <a href="https://www.dnc.ac.jp/albums/abm.php?d=156&f=abm00001603.pdf&n=%E7%AC%AC%EF%BC%95%E6%9C%9F%E4%B8%AD%E6%9C%9F%E7%9B%AE%E6%A8%99.pdf" target="_blank" class="text-xs flex items-center text-blue-600 hover:underline">
-                                <i class="fas fa-link mr-2"></i> 第5期中期目標 (大学入試センター)
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 
-                <div class="md:w-7/12 bg-slate-100 p-8 md:p-10 rounded-3xl">
-                    <h3 class="text-xl font-bold mb-2 text-center italic">Global Digital Standard</h3>
-                    <p class="text-xs text-slate-500 text-center mb-10">各国の大学入学資格試験・共通試験の成績返却までの期間</p>
+                <div class="w-full lg:w-7/12 bg-slate-100 p-6 md:p-10 rounded-3xl">
+                    <h3 class="text-lg md:text-xl font-bold mb-2 text-center italic">Global Digital Standard</h3>
+                    <p class="text-[10px] md:text-xs text-slate-500 text-center mb-8 md:mb-10">各国の共通試験・成績返却までの期間</p>
                     
                     <div class="space-y-6 mb-10">
                         <div>
-                            <div class="flex justify-between text-xs mb-1 font-bold"><span>米 SAT / ACT (デジタル)</span><span class="text-green-600">最短10日〜2週間</span></div>
+                            <div class="flex justify-between text-[10px] md:text-xs mb-1 font-bold"><span>米 SAT / ACT (デジタル)</span><span class="text-green-600">最短10日〜2週間</span></div>
                             <div class="w-full bg-slate-200 h-2 rounded-full">
                                 <div class="bg-green-500 h-full w-[15%] rounded-full"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-xs mb-1 font-bold"><span>韓国 修能 (スヌン)</span><span class="text-green-600">約2.5週間</span></div>
+                            <div class="flex justify-between text-[10px] md:text-xs mb-1 font-bold"><span>韓国 修能 (スヌン)</span><span class="text-green-600">約2.5週間</span></div>
                             <div class="w-full bg-slate-200 h-2 rounded-full">
                                 <div class="bg-green-500 h-full w-[20%] rounded-full"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-xs mb-1 font-bold"><span>中国 高考 (ガオカオ)</span><span class="text-green-600">約2〜3週間</span></div>
+                            <div class="flex justify-between text-[10px] md:text-xs mb-1 font-bold"><span>中国 高考 (ガオカオ)</span><span class="text-green-600">約2〜3週間</span></div>
                             <div class="w-full bg-slate-200 h-2 rounded-full">
                                 <div class="bg-green-500 h-full w-[25%] rounded-full"></div>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1 font-bold"><span>イギリス Aレベル (電子返却)</span><span class="text-green-600">約1ヶ月</span></div>
-                            <div class="w-full bg-slate-200 h-2 rounded-full">
-                                <div class="bg-green-500 h-full w-[35%] rounded-full"></div>
-                            </div>
-                        </div>
                         <div class="pt-4 border-t border-slate-200">
-                            <div class="flex justify-between text-sm mb-1 font-black text-red-600 italic"><span>日本 共通テスト</span><span>3ヶ月以上 (4月)</span></div>
+                            <div class="flex justify-between text-xs md:text-sm mb-1 font-black text-red-600 italic"><span>日本 共通テスト</span><span>3ヶ月以上 (4月)</span></div>
                             <div class="w-full bg-slate-200 h-3 rounded-full shadow-inner">
-                                <div class="bg-red-500 h-full w-full rounded-full shadow-lg shadow-red-900/20"></div>
+                                <div class="bg-red-500 h-full w-full rounded-full"></div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="bg-white p-4 rounded-xl shadow-sm">
                             <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-tighter">韓国の事例</p>
-                            <p class="text-xs text-slate-600 leading-tight">記述式がないマークシート方式の強みを活かし、11月実施後、12月上旬には公式成績を交付。出願に間に合わせるのが「当然」の設計です。</p>
+                            <p class="text-[11px] text-slate-600 leading-tight">11月実施後、12月上旬には公式成績を交付。出願に間に合わせるのが設計の基本です。</p>
                         </div>
                         <div class="bg-white p-4 rounded-xl shadow-sm">
                             <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-tighter">米国の事例</p>
-                            <p class="text-xs text-slate-600 leading-tight">完全デジタル化。試験終了後、システム上の不備がなければ速やかにマイページで確認可能。出願戦略の即時修正が可能です。</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-[10px] text-slate-400 text-center mt-8 leading-relaxed">
-                        ※各国とも試験形式や受験者数は異なりますが、日本の「ITの活用による事務効率化」という目標に対し、4月開示は明らかに技術水準に見合わない運用です。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Reports & Future Plans Section (HIDDEN BY DEFAULT) -->
-    <!-- 
-    <section id="reports" class="py-24 px-4 bg-slate-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-blue-900">活動報告・今後の計画</h2>
-                <p class="text-slate-600">プロジェクトの進捗と具体的なアクションプラン</p>
-                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center text-blue-800">
-                        <i class="fas fa-history mr-3"></i> これまでの活動
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-blue-200">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600"></div>
-                            <p class="text-xs font-bold text-blue-600 mb-1">202X年 1月</p>
-                            <h4 class="font-bold text-slate-800 mb-2">プロジェクト発足・ウェブサイト公開</h4>
-                            <p class="text-sm text-slate-600">共通テストの成績開示時期に関する問題提起を開始しました。</p>
-                        </div>
-                        <div class="relative pl-8 border-l-2 border-blue-200">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-400"></div>
-                            <p class="text-xs font-bold text-blue-600 mb-1">202X年 2月</p>
-                            <h4 class="font-bold text-slate-800 mb-2">実態調査アンケート実施</h4>
-                            <p class="text-sm text-slate-600">受験生・既卒生を対象とした「成績開示と学習への影響」に関するアンケートを実施し、XXX名の回答を得ました。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center text-blue-800">
-                        <i class="fas fa-rocket mr-3"></i> 今後の計画
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-800 mb-2 flex justify-between items-center">
-                                署名データの集計と提出
-                                <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 tracking-normal">PLANNING</span>
-                            </h4>
-                            <p class="text-xs text-slate-600 leading-relaxed">集まった署名とアンケートデータを基に、文部科学省および大学入試センターへ正式な要望書を提出します。</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm opacity-60">
-                            <h4 class="font-bold text-slate-800 mb-2">国会議員・有識者へのロビイング</h4>
-                            <p class="text-xs text-slate-600 leading-relaxed">教育格差やデジタルトランスフォーメーションの観点から、国会での議論を促す働きかけを行います。</p>
+                            <p class="text-[11px] text-slate-600 leading-tight">完全デジタル化。試験終了後、速やかにマイページで確認し、戦略の即時修正が可能です。</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    -->
 
     <!-- Action Section -->
-    <section id="action" class="py-24 bg-blue-900 text-white px-4 text-center">
+    <section id="action" class="py-16 md:py-24 bg-blue-900 text-white px-4 text-center">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold mb-8 italic leading-tight">賠償金よりも、<br>システムを変えてほしい。</h2>
-            <div class="bg-white text-slate-900 p-10 rounded-[2.5rem] shadow-2xl">
-                <h3 class="text-2xl font-bold mb-8 italic text-blue-900">あなたの協力が必要です</h3>
+            <h2 class="text-2xl md:text-4xl font-bold mb-8 italic leading-tight">不確かな「自己採点」を、<br>終わらせよう。</h2>
+            <div class="bg-white text-slate-900 p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl">
+                <h3 class="text-lg md:text-2xl font-bold mb-6 italic text-blue-900 tracking-tight">共通テスト成績の早期開示の実現を求める会</h3>
                 <div class="space-y-4">
-                    <button class="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 transition shadow-lg flex items-center justify-center gap-3">
+                    <button class="w-full bg-blue-600 text-white font-bold py-4 md:py-5 rounded-2xl hover:bg-blue-700 transition shadow-lg flex items-center justify-center gap-3 text-base md:text-lg">
                         <i class="fas fa-pen-nib"></i> オンライン署名へ進む
                     </button>
-                    <a href="https://docs.google.com/forms/..." target="_blank" class="block w-full border-2 border-blue-600 text-blue-600 font-bold py-5 rounded-2xl hover:bg-blue-50 transition flex items-center justify-center gap-3">
-                        <i class="fas fa-chart-bar"></i> 実態アンケートに答える
-                    </a>
-                    <div class="grid grid-cols-2 gap-4 mt-4">
-                        <button class="bg-black text-white font-bold py-4 rounded-2xl hover:opacity-80 transition flex items-center justify-center gap-2">
+                    <div class="grid grid-cols-2 gap-3 mt-4">
+                        <button class="bg-black text-white font-bold py-4 rounded-2xl hover:opacity-80 transition flex items-center justify-center gap-2 text-sm">
                             <i class="fab fa-x-twitter"></i> 拡散
                         </button>
-                        <button class="bg-green-600 text-white font-bold py-4 rounded-2xl hover:opacity-80 transition flex items-center justify-center gap-2">
+                        <button class="bg-green-600 text-white font-bold py-4 rounded-2xl hover:opacity-80 transition flex items-center justify-center gap-2 text-sm">
                             <i class="fab fa-line"></i> LINE
                         </button>
                     </div>
@@ -294,23 +259,53 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 bg-slate-50 border-t border-slate-200 text-center px-4">
+    <footer class="py-12 md:py-16 bg-slate-50 border-t border-slate-200 text-center px-4">
         <div class="max-w-6xl mx-auto">
-            <p class="text-slate-500 font-bold mb-4 tracking-widest italic text-sm">共通テスト成績開示改善プロジェクト</p>
-            <p class="text-slate-400 text-[10px]">日本国憲法第13条、自己情報コントロール権、行政のデジタル化推進義務</p>
+            <p class="text-slate-500 font-bold mb-4 tracking-widest italic text-xs md:text-sm">共通テスト成績の早期開示の実現を求める会</p>
+            <p class="text-slate-400 text-[9px] md:text-[10px] leading-relaxed">
+                日本国憲法第13条、自己情報コントロール権、行政のデジタル化推進義務<br class="md:hidden">
+                &copy; 2024 Project for Early Score Disclosure.
+            </p>
         </div>
     </footer>
 
     <script>
+        // ハンバーガーメニューの開閉制御
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            // アイコンの切り替え
+            menuIcon.classList.toggle('fa-bars', !isOpen);
+            menuIcon.classList.toggle('fa-times', isOpen);
+        });
+
+        // リンククリック時にメニューを閉じる
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+            });
+        });
+
+        // スムーズスクロール
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
+                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    e.preventDefault();
+                    const navHeight = 64;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
                     window.scrollTo({
-                        top: targetElement.offsetTop - 64,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
